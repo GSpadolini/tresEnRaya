@@ -1,0 +1,122 @@
+body{
+    background-color: #353535;
+}
+
+.flex{
+    display: flex;
+}
+
+.centrado{
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    color: #dbdbdb; 
+}
+
+li{
+    list-style: none;
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    color: #dbdbdb;
+}
+
+p{
+    color: #dbdbdb;
+}
+
+
+ul{
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#list0{
+    border-right: 1px solid #838383;
+    border-bottom: 1px solid #686868;
+}
+
+#list1{
+    border: 1px solid #838383;
+    border-left: none;
+}
+
+#list2{
+    border-top: 1px solid #838383;
+    border-right: 1px solid #838383;
+}
+
+#list3{
+    border: 1px solid #838383;
+    border-top: none;
+}
+
+#list4{
+    border: 1px solid #838383;
+}
+
+#list5{
+    border: 1px solid #838383;
+    border-bottom: none;
+}
+
+#list6{
+    border-left: 1px solid #838383;
+    border-bottom: 1px solid #838383;
+}
+
+#list7{
+    border:1px solid #838383;
+    border-right: none;
+}
+
+
+#list8{
+    border-top: 1px solid #838383;
+    border-left: 1px solid #838383;
+}
+
+#modoDeJuego{
+    margin: 80px;
+}
+
+.elegir{
+    margin: 10px;
+}
+
+.separar{
+    margin: 20px;
+}
+
+span:hover{
+    color: rgb(55, 55, 255);
+    cursor: pointer;
+}
+
+.invisible{
+    opacity: 0;
+}
+
+.visible{
+    display: block;
+}
+
+.seleccionado{
+    color: rgb(55, 55, 255) !important;
+}
+
+h1{
+    color: #dbdbdb;
+    margin: 0;
+}
+
+main{
+    height: 310px;
+}
+.none{
+    display: none;
+}
