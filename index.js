@@ -8,6 +8,7 @@ const div = document.querySelectorAll('div');
 const ul = document.querySelectorAll('ul');
 const li = document.querySelectorAll('li');
 const h1 = document.querySelector('h1');
+const p = document.querySelectorAll('p');
 let jugadasPC = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 let par = 0;
 let pc = 0;
@@ -120,44 +121,60 @@ const empate = () => {
 const seleccionarXO = (tresCuatro) => {
     if (tresCuatro === 3 && par === 0) {
     span[3].classList.add("seleccionado");
-    span[4].classList.add("invisible");
+    span[4].classList.add('none');
     jugadorXO = 'X';
     } else if (tresCuatro === 4 && par === 0) {
     span[4].classList.add("seleccionado");
-    span[3].classList.add("invisible");
+    span[3].classList.add('none');
     jugadorXO = 'O';
     }
     
 }
+const desapareceSpan = () => {
+    let i = 0
+    span.forEach(element => {
+        element.classList.add('none');
+    });
+    p[0].classList.add('none');
+    p[1].classList.add('none');
+    div[6].classList.remove('invisible')
+}
 const seleccionar = () => {
+    let juegasConUnCompi=0;
     span[0].addEventListener("click", () => {
-        span[0].classList.add("invisible");
-        span[1].classList.add("invisible");
-        span[2].classList.add("invisible");
+        span[0].classList.add("none");
+        span[1].classList.add("none");
+        span[2].classList.add("none");
         div[4].classList.remove("invisible");
         pc = 1;
     })
     span[1].addEventListener("click", () => {
-        span[0].classList.add("invisible");
-        span[1].classList.add('invisible');
-        span[2].classList.add("invisible");
+        span[0].classList.add("none");
+        span[1].classList.add('none');
+        span[2].classList.add("none");
         div[4].classList.remove("invisible");
     })
     span[2].addEventListener("click", () => {
-        span[0].classList.add("invisible");
-        span[1].classList.add("invisible");
-        span[2].classList.add("invisible");
+        span[0].classList.add("none");
+        span[1].classList.add("none");
+        span[2].classList.add("none");
         div[4].classList.remove("invisible");
         ul[0].classList.remove('none');
         ul[1].classList.remove('none');
         ul[2].classList.remove('none');
+        juegasConUnCompi=1
+        
     })
     span[3].addEventListener("click", () => {
         //Este es X
         seleccionarXO(3);
         if (pc === 1) {
             div[6].classList.remove('invisible');
-            pcXO= 'X'
+            pcXO= 'X';
+        }
+        if (juegasConUnCompi === 1) {
+            p[2].insertAdjacentHTML('afterbegin', `Comienza el compi con ${jugadorXO}`);
+            desapareceSpan();
         }
     })
     span[4].addEventListener("click", () => {
@@ -167,26 +184,27 @@ const seleccionar = () => {
             div[6].classList.remove('invisible');
             pcXO = 'O';
         }
+        if (juegasConUnCompi === 1) {
+            p[2].insertAdjacentHTML('afterbegin', `Comienza el compi con ${jugadorXO}`);
+            desapareceSpan();
+        }
     })
     span[5].addEventListener('click', () => {
         //este es Computadora
-        if (pc>=1) {
-            ul[0].classList.remove('none');
-            ul[1].classList.remove('none');
-            ul[2].classList.remove('none');
-        }
-        pc = 2;
         span[5].classList.add("seleccionado");
         span[6].classList.add('invisible');
         juegaPC();
-    })
-    span[6].addEventListener('click', () => {
-        //Este es Tu
         if (pc>=1) {
             ul[0].classList.remove('none');
             ul[1].classList.remove('none');
             ul[2].classList.remove('none');
+            desapareceSpan();
+            p[2].insertAdjacentHTML('afterbegin', `Comienza la computadora con ${pcXO}`)
         }
+        pc = 2;
+    })
+    span[6].addEventListener('click', () => {
+        //Este es Tu
         if (pcXO==='X') {
             jugadorXO = 'X';
             pcXO='O';
@@ -198,6 +216,13 @@ const seleccionar = () => {
         }
         span[6].classList.add("seleccionado");
         span[5].classList.add('invisible');
+        if (pc>=1) {
+            ul[0].classList.remove('none');
+            ul[1].classList.remove('none');
+            ul[2].classList.remove('none');
+            desapareceSpan();
+            p[2].insertAdjacentHTML('afterbegin', `Comienza tu con ${jugadorXO}`)
+        }
     })
 }
 
