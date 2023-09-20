@@ -139,6 +139,11 @@ const desapareceSpan = () => {
     p[1].classList.add('none');
     div[6].classList.remove('invisible')
 }
+const aparecenLosul = () =>{
+    ul.forEach(element => {
+        element.classList.remove('none');
+    });
+}
 const seleccionar = () => {
     let juegasConUnCompi=0;
     span[0].addEventListener("click", () => {
@@ -159,9 +164,7 @@ const seleccionar = () => {
         span[1].classList.add("none");
         span[2].classList.add("none");
         div[4].classList.remove("invisible");
-        ul[0].classList.remove('none');
-        ul[1].classList.remove('none');
-        ul[2].classList.remove('none');
+
         juegasConUnCompi=1
         
     })
@@ -175,6 +178,7 @@ const seleccionar = () => {
         if (juegasConUnCompi === 1) {
             p[2].insertAdjacentHTML('afterbegin', `Comienza el compi con ${jugadorXO}`);
             desapareceSpan();
+            aparecenLosul();
         }
     })
     span[4].addEventListener("click", () => {
@@ -187,6 +191,7 @@ const seleccionar = () => {
         if (juegasConUnCompi === 1) {
             p[2].insertAdjacentHTML('afterbegin', `Comienza el compi con ${jugadorXO}`);
             desapareceSpan();
+            aparecenLosul();
         }
     })
     span[5].addEventListener('click', () => {
